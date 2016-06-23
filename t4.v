@@ -1,3 +1,5 @@
+// recebe todos os pontos por 6 entradas e retorna desligado para sign=não e ligado para sign=sim
+// segue o mesmo modelo do código python
 module sign(
   input [10:0] p1x,
   input [10:0] p1y,
@@ -18,6 +20,9 @@ module sign(
 
 endmodule
 
+// Recebe duas entradas ptx e pty para o ponto a ser verificado e mais 6 entradas
+// que são os pontos que formam o triângulo em questão
+// retorna desligado para dentroTriang=não e ligado para dentroTriang=sim
 module dentroTriang(
   input [10:0] ptx,
   input [10:0] pty,
@@ -65,11 +70,15 @@ module teste;
     p3x <= 11'b00110010000; // 400
     p3y <= 11'b01001011000; // 600
     #20;
-    ptx <= 11'b00111011011;
-    pty <= 11'b00111000010;
+    // teste ponto 01
+    // saida tem que retornar 0
+    ptx <= 11'b00111011011; // 475
+    pty <= 11'b00111000010; // 450
     #40;
-    ptx <= 11'b01001001001;
-    pty <= 11'b00111010110;
+    // teste ponto 02
+    // saida tem que retornar 1
+    ptx <= 11'b01001001001; // 585
+    pty <= 11'b00111010110; // 470
     #500;
     $finish;
   end
